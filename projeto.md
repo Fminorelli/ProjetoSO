@@ -2,6 +2,8 @@
 
 #### No inicio deste Lab trabalharemos primeiramente com a alocação das paginas físicas, portanto as funções abaixo deveram ser implementadas.
 
+ A partir daqui trabalharemos com novos tipos de dados, tais como o PTE e PDE , para a compreensão do funcionamento dessas estruturas, e mais informações sobre a manipulação de memoria estude os capítulos 5 e 6 do [manual do Intel 386](https://pdos.csail.mit.edu/6.828/2014/readings/i386/toc.htm), principalmente os subcapítulos 5.2 e 6.4 que tratam do funcionamento das tabelas de memoria, e do gerenciamento de acesso de paginas.
+
 + boot_alloc
 
   Nesta função após recebida a quantidade bytes a serem alocados, devemos separar paginas suficientes para estes.
@@ -15,7 +17,7 @@
   5. Retornar este ponteiro.
 
 
-+ men_init parte 1d
++ men_init parte 1
 
   Aqui faremos a alocação do vetor responsável pelo controle das paginas físicas, sendo que em cada posição deste vetor se encontra uma estrutura PageInfo, a qual contem informações sobre cada pagina física.
 
@@ -95,7 +97,7 @@
 
 + page_remove
 
-O page_remove remove o mapeamento entre um endereço virtual e uma pagina de memoria física, para que tal endereço físico possa ser usado futuramente por outro processo.
+  O page_remove remove o mapeamento entre um endereço virtual e uma pagina de memoria física, para que tal endereço físico possa ser usado futuramente por outro processo.
 
  Utilizaremos das funções anteriores pare que esta remoço ocorra sem problemas, seguindo a seguinte ordem:
 
