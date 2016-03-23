@@ -1,4 +1,26 @@
-# **LAB 2**
+# [**LAB 1**](https://pdos.csail.mit.edu/6.828/2014/labs/lab1/)
+
+
+#### Este lab é dividido em três partes, onde a primeira é responsável pela familiarização com as ferramentas utilizadas na simulação e das linguagens a serem utilizadas, a segunda tem como foco o boot  do sistema, e a terceira da inicio ao estudo do kernel.
+
+ + Primeira parte
+
+  Dando inicio ao lab, a primeira parte é constituída, em sua maioria, por teoria.  Conta com documentações sobre assembly, uma breve introdução sobre memoria e arquitetura dos primeiros PCs, e uma breve explicação sobre a BIOS, como esta é armazenada e executada durante a inicialização do sistema.
+
+  Devido a grande quantidade de teoria, esta parte requer atenção durante sua leitura, pois apresenta informações e conceitos que serão utilizados futuramente. A falta de exercícios práticos torna esta seção um pouco cansativa, mas como dito anteriormente, dados aqui apresentados serão de grande uso nos próximos exercícios.
+
++ Segunda Parte
+
+  Dando sequencia a primeira parte, nesta seção o foco é o boot do sistema. Os exercícios aqui encontrados são referentes a analise das instruções do boot via GDB, carregamento do kernel, e compreensão do formato ELF.
+
+  Apesar de bem explicativa, esta parte introduz conceitos do formato ELF que podem se mostrar confusos a iniciantes no assunto. A desmontagem dos arquivos do kernel, e do boot com o comando objdump apresentam resultados de difícil interpretação devido a grande quantidade de informação resultante. Mas além deste obstáculo é possível concluir as instruções sem muitos problemas.
+
++ Terceira parte
+
+  Na terceira parte é dada continuidade a explicação sobre o mapeamento da memoria do sistema, introdução às funções de print, e pilha do sistema. Após a conclusão de cada teoria, exercícios práticos são sugeridos.
+
+
+# [**LAB 2**](https://pdos.csail.mit.edu/6.828/2014/labs/lab2/)
 
 #### No inicio deste Lab trabalharemos primeiramente com a alocação das paginas físicas, portanto as funções abaixo deveram ser implementadas.
 
