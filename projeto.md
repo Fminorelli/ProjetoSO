@@ -1,10 +1,9 @@
 % Guia para as atividades do JOS
 % Felipe Torres Minorelli
 
-<!--
-	aqui devemos fazer uma descrição sobre o propósito do JOS e qual é o nosso própósito
-	nestes tutoriais.
- -->
+
+Nestes tutoriais teremos como objetivo o estudo do booting e gerenciamento de memoria do JOS, um sistema operacional desenvolvido por estudantes do MIT. O estudo sera feito através de analises de partes do código ja implementadas pelos criadores do SO, e implementações de partes essenciais para o funcionamento do sistema.
+
 
 # [**LAB 1**](https://pdos.csail.mit.edu/6.828/2014/labs/lab1/)
 
