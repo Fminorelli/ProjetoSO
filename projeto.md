@@ -14,9 +14,9 @@
 
 ## Parte 1
 
-  Dando inicio ao lab, a primeira parte é constituída, em sua maioria, por teoria.  Conta com documentações sobre assembly, uma breve introdução sobre memoria e arquitetura dos primeiros PCs <!-- vale falar que a base da arquitetura é a mesma até hoje! -->, e uma breve explicação sobre a BIOS, como esta é armazenada e executada durante a inicialização do sistema.
+  Dando inicio ao lab, a primeira parte é constituída, em sua maioria, por teoria.  Conta com documentações sobre assembly, uma breve introdução sobre memoria e arquitetura dos primeiros PCs, arquitetura que até hoje é utilizada na maioria dos PCs, e uma breve explicação sobre a BIOS, como esta é armazenada e executada durante a inicialização do sistema.
 
-<!-- também apresenta o qemu! fala sobre ele aqui (o que ele faz, pq é util usá-lo no desenvolvimento de um SO) -->
+  Para a execução dos exercícios, utilizaremos o qemu, um emulador de sistemas operacionais que facilitará nosso desenvolvimento, pois através dele emularemos o SO e com a ajuda do GDB sera possível a analise dos acontecimentos em tempo de execução. Muitos exercícios deste lab requerem a analise de instruções durante o boot do SO, portanto é recomendado a leitura da documentação do qemu [http://wiki.qemu.org/Main_Page](http://wiki.qemu.org/Main_Page) e do GDB [http://www.gnu.org/software/gdb/](http://www.gnu.org/software/gdb/).
 
   Devido a grande quantidade de teoria, esta parte requer atenção durante sua leitura, pois apresenta informações e conceitos que serão utilizados futuramente. A falta de exercícios práticos torna esta seção um pouco cansativa, mas como dito anteriormente, dados aqui apresentados serão de grande uso nos próximos exercícios.
 
@@ -26,11 +26,37 @@
 
 <!-- O que você precisou aprender pra fazer estes exercícios? Explique os conceitos que se mostraram os maiores obstáculos. Divida as explicações por exercício, usando uma nova subseção por exercício. Claro, se o exercício não tem grandes desafios, ou vc já explicou o desafio anteriormente, não é necessário repetir.-->
 
-  Apesar de bem explicativa, esta parte introduz conceitos do formato ELF que podem se mostrar confusos a iniciantes no assunto. A desmontagem dos arquivos do kernel, e do boot com o comando objdump apresentam resultados de difícil interpretação devido a grande quantidade de informação resultante. Mas além deste obstáculo é possível concluir as instruções sem muitos problemas.
+  Apesar de bem explicativa, esta parte introduz conceitos do formato ELF que podem se mostrar confusos a iniciantes no assunto. A desmontagem dos arquivos do kernel, e do boot com o comando objdump apresentam resultados de difícil interpretação devido a grande quantidade de informação resultante. Mas além deste obstáculo é possível concluir as instruções sem muitos problemas. Abaixo temos o exemplo do primeiro objdump solicitado:
+
+    $objdump -h obj/kern/kernel
+
+      obj/kern/kernel: formato do arquivo elf32-i386
+
+      Seções:
+      Idx Tamanho do Nome do Arquivo VMA LMA sem Algn
+        0 .text         000037d5  f0100000  00100000  00001000  2**4
+                        CONTENTS, ALLOC, LOAD, READONLY, CODE
+        1 .rodata       000013b0  f0103800  00103800  00004800  2**6
+                        CONTENTS, ALLOC, LOAD, READONLY, DATA
+        2 .stab         00005e21  f0104bb0  00104bb0  00005bb0  2**2
+                        CONTENTS, ALLOC, LOAD, READONLY, DATA
+        3 .stabstr      00001d6f  f010a9d1  0010a9d1  0000b9d1  2**0
+                        CONTENTS, ALLOC, LOAD, READONLY, DATA
+        4 .data         0000a300  f010d000  0010d000  0000e000  2**12
+                        CONTENTS, ALLOC, LOAD, DATA
+        5 .bss          00000690  f0117300  00117300  00018300  2**6
+                        ALLOC
+        6 .comment      00000025  00000000  00000000  00018300  2**0
+                        CONTENTS, READONLY
+
+
+  Neste exemplo temos na primeira coluna todas as seções da ELF do arquivo selecionado, tais como a seção .text que contem todos os textos e instruções executáveis deste arquivo, e a .rodata que contem as informações que são somente de leitura. Mais informações sobre as divisões do formato ELF podem ser encontrados em [http://www.skyfree.org/linux/references/ELF_Format.pdf](http://www.skyfree.org/linux/references/ELF_Format.pdf) na seção Special Sections. Já na segunda coluna temos informações como o tamanho do conteúdo, localização destas informações e a quantidade de memoria ocupada por estas.  
+
+
 
 <!-- Pq é de difícil interpretação? Seria legal explicar uma saída, por exemplo, para facilitar para a galera. Lembra, o nosso objetivo é suavizar os obstáculos hehe.
 
-Explique pelo menos as seções do ELF, a saída de um objdump. Aqui pode mostrar um código mais simples, escrito em C por você e mostre como que desmonta e explica, usando o exemplo que vc criou, como que entende a saída do objdump. Se quiser usar o próprio exercício, fique à vontade também. Veja que o markdown permite que coloque código formatadinho: https://support.codebasehq.com/articles/tips-tricks/syntax-highlighting-in-markdown
+**** https://support.codebasehq.com/articles/tips-tricks/syntax-highlighting-in-markdown
 
 -->
 
