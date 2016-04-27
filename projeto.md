@@ -61,12 +61,22 @@ Nestes tutoriais teremos como objetivo o estudo do booting e gerenciamento de me
 
 ## Parte 3
 
-  Na terceira parte é dada continuidade a explicação sobre o mapeamento da memoria do sistema, introdução às funções de print, e pilha do sistema. Após a conclusão de cada teoria, exercícios práticos são sugeridos.
+Na terceira parte é dada continuidade a explicação sobre o mapeamento da memoria do sistema, introdução às funções de print, e pilha do sistema. Após a conclusão de cada teoria, teremos alguns exercícios práticos.
 
-<!-- Novamente: O que você precisou aprender pra fazer estes exercícios? Explique os conceitos que se mostraram os maiores obstáculos. (pode deixar o ex. 12 de fora.)
+O primeiro exercício tem como intuito demostrar como é feita a implementação de um print, e como são feitas as chamadas no sistema. Durante a analise do printfmt.c podemos constatar como é feito o tratamento de cada parâmetro de um print, feito isso a conclusão do exercício, que requer uma impressão de um numero octal, se resume apenas a algumas linhas de código que se assemelham com a impressão de um decimal, porem com uma base diferente.
 
-							:D
--->
+ Os dois seguintes exercícios tratam-se apenas da analise de código via GDB e analise do código do kernel, ambos com a intenção de nos familiarizar com os conceitos de pilha do kernel. Tenha em mente que os seguintes ponteiros utilizados na pilha do kernel serão de grande importância no próximo exercício:
+
+    ESP: Ponteiro de pilha (aponta sempre para o topo da pilha)
+    EBP: Ponteiro de base da pilha (aponta para a base da pilha do processo atual)
+    EIP: Ponteiro de instrução (aponta para qual instrução do programa esta sendo executada no momento)
+
+Com tais informações podemos partir para o exercicio 11. Aqui sua implementação deverá imprimir todas as funções executadas ate o momento da chamada da sua função. Pontos que podem ajudar sua implementação:
+
+1. A base da pilha do kernel se encontra em 0x0.
+2. Criar um EIP ira lhe ajudar a se localizar.
+3. Existem funções como a read_ebp() e read_esp(), que facilitam a leitura dos registradores.
+4. Uma soma subsequente de inteiros em EBP lhe mostrara as instruções seguintes.
 
 
 # [**LAB 2**](https://pdos.csail.mit.edu/6.828/2014/labs/lab2/)
